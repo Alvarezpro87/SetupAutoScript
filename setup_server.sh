@@ -13,6 +13,9 @@ HOSTNAME=$(hostname)
 
 sudo yum -y update
 
+# Instala o httpd e o PHP
+sudo yum -y install httpd php
+
 # Verifica se o httpd está mascarado. Se estiver, desmascara.
 
 if systemctl --quiet is-masked httpd; then
@@ -22,10 +25,6 @@ if systemctl --quiet is-masked httpd; then
     echo "httpd estava mascarado,mas agora não está mais."
 
 fi
-
-# Instala o httpd e o PHP
-sudo yum -y install httpd php
-
 
 
 # Habilita e inicia o httpd
